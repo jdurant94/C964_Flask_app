@@ -4,13 +4,14 @@ import KNN
 
 app = Flask(__name__)
 
-
 KNN.knn
 
-#homepage
+
+# homepage
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 # sends user data to KNN to return game recs
 @app.route('/submit', methods=['POST'])
@@ -23,5 +24,4 @@ def game_form_post():
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0')
