@@ -1,1 +1,1 @@
-web: gunicorn main:app
+web: gunicorn main:app --timeout 900 --max-requests 1200 --workers 1
