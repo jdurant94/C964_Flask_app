@@ -1,11 +1,8 @@
 import pandas as pd
 import numpy as np
-import matplotlib as plt
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.neighbors import NearestNeighbors
 import re
-from scipy.sparse import csr_matrix
-
 # import data
 game_data_clean = pd.read_csv("game_data_clean.csv")
 game_data_clean.rename(columns={'Unnamed: 0': 'gameid'}, inplace=True)
