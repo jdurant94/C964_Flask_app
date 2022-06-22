@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Video Game Recommendation Engine</title>
+    <script language="JavaScript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+      <script>
+         function AddImage(){
+         	var pathImg = $("#mySelect option:selected").val();
+         	var htmImg = "<img src='"+ pathImg +"'>";
+         	$("#destiny").html(htmImg);
+         }
+      </script>
+</head>
+<body>
+<div class="container">
+    {% if message %}
+    <p class="message">{{ message | safe }}</p>
+    {% endif %}
+    <form action="/submit" method="POST">
+        <div class="form-group">
+            <h3>Game Name</h3>
+            <input
+             type="text"
+             name="game"
+             placeholder="name of game"/>
+        </div>
+    </form>
+</div>
+<div>
+    <h4>Example Games:</h4>
+    <li>Call of Duty</li>
+    <li>Diablo III</li>
+    <li>Civilization V</li>
+    <li>Dark Horizon</li>
+    <li>Dragon Age II</li>
+</div>
+<br>
+<br>
+
+<h2>Visual Analysis</h2>
+
+<select id="mySelect" onchange="AddImage()">
+         <option>Select a graph</option>
+         <option value="static/release_year.jpg">Number of Releases per Year</option>
+         <option value="static/data_points.jpg">Data Points Used in KNN Algorithm</option>
+         <option value="static/genres_percent.jpg">Genres by Percentage</option>
+      </select>
+      <div id="destiny" style="width:75%; text-align: center;"></div>
+
+  </div>
+</div>
+
+</body>
+</html>
